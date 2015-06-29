@@ -1,0 +1,34 @@
+home=~/Notes
+
+mkdir $home
+cd $home
+
+if [ -f "$1.zip" ]
+then
+ echo "Creating backup..."
+ mkdir "backups"
+ cp "$1.zip" "backups/$1.zip"
+fi
+
+if [ -f "$1.zip" ]
+then
+ echo "Unzipping file..."
+ unzip $1.zip && rm $1.zip || echo "Failed to unzip file"
+fi
+
+vi $1
+
+echo "Do you want to encrypt?"
+echo "(y/n, default is no)?"
+
+read encryptOpt  # get the y/n
+case $encryptOpt in    # 
+   y|Y ) encrypt="-e";;
+   n|N ) encrypt="";;
+     * ) encrypt="";;
+esac
+
+zip $encrypt $1.zip $1
+rm $1
+
+echo edited_on $(date) >> .$1

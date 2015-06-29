@@ -1,0 +1,10 @@
+base=~/Notes
+
+echo ----------------------Listing all matching node entries----------------------
+ls -l $base/*$1*
+
+echo ----------------------Contents of all matching node entries------------------
+cat $base/.*$1* | echo
+
+echo ----------------------And all matching data---------------------------------
+grep -i $1 $base/*

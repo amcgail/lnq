@@ -1,0 +1,4 @@
+home=~/Notes
+
+cat $home/$1 ||
+unzip -p $home/$1.zip $1

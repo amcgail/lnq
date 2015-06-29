@@ -1,0 +1,18 @@
+base=~/Notes
+
+n=$1
+n=$( \
+ ls -ltc $base/ | \
+ grep -v bin | \
+ grep -v total | \
+ head -n $n | \
+ wc -l \
+)
+
+echo Displaying $n most recent objects
+
+ls -ltc $base/ | \
+ grep -v bin | \
+ grep -v nothing | \
+ grep -v total | \
+ head -n $n

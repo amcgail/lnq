@@ -1,0 +1,7 @@
+echo $1
+echo $2
+echo $3
+
+base=~/Notes
+
+echo $2 $3>>$base/.$1
